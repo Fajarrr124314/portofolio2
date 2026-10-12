@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAJAR NUR FARRIJAL — Frontend Developer</title>
+  <meta name="description" content="Fajar Nur Farrijal — Frontend Developer. Building immersive web experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- HEADER / NAVBAR — revealed on scroll -->
+  <header id="navbar">
+    <div class="nav-liquid-layer"></div>
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" id="nav-logo">PORTOFOLIO</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" id="nl-home">Home</a></li>
+        <li><a href="#about" class="nav-link" id="nl-about">About</a></li>
+        <li><a href="#skills" class="nav-link" id="nl-skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" id="nl-projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" id="nl-contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-nav-hire" id="btn-hire">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════
+       HERO — TUNNEL ROOM
+  ══════════════════════ -->
+  <div class="hero-wrapper" id="hero-wrapper">
+    <section class="hero" id="home">
+
+      <!-- TUNNEL SCENE -->
+      <div class="tunnel-scene" id="tunnel-scene" aria-hidden="true">
+
+        <!-- TOP WALL — ceiling -->
+        <div class="wall-top" id="wall-top">
+          <div class="tunnel-text ceiling-outer">FAJAR NUR</div>
+          <div class="tunnel-text ceiling-inner">FARRIJAL</div>
+        </div>
+
+        <!-- SIDE WALLS -->
+        <div class="tunnel-middle">
+          <div class="wall-left" id="wall-left">
+            <div class="tunnel-text side-top">YOUR</div>
+            <div class="tunnel-text side-bottom">CODE</div>
+          </div>
+          <div class="wall-right" id="wall-right">
+            <div class="tunnel-text side-top">YOUR</div>
+            <div class="tunnel-text side-bottom">VISION</div>
+          </div>
+        </div>
+
+        <!-- BOTTOM WALL — floor -->
+        <div class="wall-bottom" id="wall-bottom">
+          <div class="tunnel-text floor-inner">BUILDS</div>
+          <div class="tunnel-text floor-outer">THE WEB</div>
+        </div>
+
+      </div><!-- /tunnel-scene -->
+
+      <!-- VIGNETTE — darkens edges, keeps center bright -->
+      <div class="tunnel-vignette" id="tunnel-vignette"></div>
+
+      <!-- FACE — direct, no wrapper box -->
+      <!-- GLOWING WHITE EYES (Interactive Cursor Tracking) -->
+      <div class="eyes-container" id="eyes-container">
+        <svg class="cyber-eye-svg eye-left" id="cyber-eye-left" viewBox="0 0 600 280">
+          <defs>
+            <filter id="cyanGlow-left" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="blur1" />
+              <feGaussianBlur stdDeviation="12" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <filter id="whiteFlare-left" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <radialGradient id="irisBgGrad-left" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#00ffff" />
+              <stop offset="35%" stop-color="#00b4d8" />
+              <stop offset="70%" stop-color="#0077b6" />
+              <stop offset="90%" stop-color="#03045e" />
+              <stop offset="100%" stop-color="#000000" />
+            </radialGradient>
+
+            <linearGradient id="scleraGrad-left" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00ffff" stop-opacity="0.55" />
+              <stop offset="20%" stop-color="#004466" stop-opacity="0.3" />
+              <stop offset="50%" stop-color="#000511" stop-opacity="0.95" />
+              <stop offset="80%" stop-color="#004466" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#00ffff" stop-opacity="0.55" />
+            </linearGradient>
+
+            <mask id="eyeContourMask-left">
+              <path d="M 50,140 Q 300,20 550,140 Q 300,260 50,140 Z" fill="#ffffff" />
+            </mask>
+          </defs>
+
+          <g mask="url(#eyeContourMask-left)">
+            <rect x="0" y="0" width="600" height="280" fill="#000000" />
+            <path d="M 50,140 Q 300,20 550,140 Q 300,260 50,140 Z" fill="url(#scleraGrad-left)" />
+
+            <!-- LAYERED 3D PARALLAX IRIS & PUPIL -->
+            <!-- Layer 1: Outer Iris Body & Spoke Texture -->
+            <g id="iris-bg-left">
+              <circle cx="300" cy="140" r="82" fill="url(#irisBgGrad-left)" stroke="#00ffff" stroke-width="3"
+                filter="url(#cyanGlow-left)" />
+
+              <g stroke="#00ffff" stroke-width="1.5" opacity="0.75">
+                <line x1="300" y1="58" x2="300" y2="78" />
+                <line x1="300" y1="202" x2="300" y2="222" />
+                <line x1="218" y1="140" x2="238" y2="140" />
+                <line x1="362" y1="140" x2="382" y2="140" />
+
+                <line x1="242" y1="82" x2="256" y2="96" />
+                <line x1="358" y1="82" x2="344" y2="96" />
+                <line x1="242" y1="198" x2="256" y2="184" />
+                <line x1="358" y1="198" x2="344" y2="184" />
+
+                <line x1="222" y1="110" x2="238" y2="118" />
+                <line x1="378" y1="110" x2="362" y2="118" />
+                <line x1="222" y1="170" x2="238" y2="162" />
+                <line x1="378" y1="170" x2="362" y2="162" />
+
+                <circle cx="300" cy="140" r="66" fill="none" stroke="#00ffff" stroke-width="1.5"
+                  stroke-dasharray="4,4" />
+              </g>
+
+              <circle cx="300" cy="140" r="44" fill="none" stroke="#00ffff" stroke-width="3.5"
+                filter="url(#cyanGlow-left)" />
+              <circle cx="300" cy="140" r="34" fill="none" stroke="#ffffff" stroke-width="2"
+                filter="url(#whiteFlare-left)" />
+            </g>
+
+            <!-- Layer 2: Deep Inner Black Pupil Center (3D Depth Offset) -->
+            <g id="pupil-core-left">
+              <circle cx="300" cy="140" r="26" fill="#000000" />
+              <circle cx="300" cy="140" r="16" fill="#020914" />
+            </g>
+
+            <!-- Layer 3: Surface Glare Reflection Spot -->
+            <g id="glare-left">
+              <circle cx="288" cy="128" r="5" fill="#ffffff" filter="url(#whiteFlare-left)" />
+              <circle cx="280" cy="136" r="2.5" fill="#ffffff" />
+            </g>
+          </g>
+
+          <!-- STATIC OUTLINES & CYBER EYELASHES -->
+          <path d="M 45,140 Q 300,15 555,140" fill="none" stroke="#00ffff" stroke-width="4.5"
+            filter="url(#cyanGlow-left)" />
+          <path d="M 45,140 Q 300,265 555,140" fill="none" stroke="#00ffff" stroke-width="3.5"
+            filter="url(#cyanGlow-left)" />
+
+          <path d="M 70,128 Q 300,2 530,128" fill="none" stroke="#00ffff" stroke-width="2.5" opacity="0.9"
+            filter="url(#cyanGlow-left)" />
+          <path d="M 100,118 Q 300,-10 500,118" fill="none" stroke="#00ffff" stroke-width="1.8" opacity="0.65" />
+
+          <path d="M 80,152 Q 300,278 520,152" fill="none" stroke="#00ffff" stroke-width="2" opacity="0.8" />
+
+          <g stroke="#00ffff" stroke-width="1.6" opacity="0.8" filter="url(#cyanGlow-left)">
+            <line x1="130" y1="72" x2="122" y2="55" />
+            <line x1="160" y1="52" x2="154" y2="34" />
+            <line x1="195" y1="36" x2="191" y2="18" />
+            <line x1="230" y1="24" x2="228" y2="6" />
+            <line x1="265" y1="18" x2="264" y2="0" />
+            <line x1="300" y1="15" x2="300" y2="-3" />
+            <line x1="335" y1="18" x2="336" y2="0" />
+            <line x1="370" y1="24" x2="372" y2="6" />
+            <line x1="405" y1="36" x2="409" y2="18" />
+            <line x1="440" y1="52" x2="446" y2="34" />
+            <line x1="470" y1="72" x2="478" y2="55" />
+
+            <line x1="150" y1="210" x2="145" y2="228" />
+            <line x1="190" y1="234" x2="187" y2="252" />
+            <line x1="245" y1="254" x2="243" y2="272" />
+            <line x1="300" y1="258" x2="300" y2="278" />
+            <line x1="355" y1="254" x2="357" y2="272" />
+            <line x1="410" y1="234" x2="413" y2="252" />
+            <line x1="450" y1="210" x2="455" y2="228" />
+          </g>
+        </svg>
+        <svg class="cyber-eye-svg eye-right" id="cyber-eye-right" viewBox="0 0 600 280">
+          <defs>
+            <filter id="cyanGlow-right" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="blur1" />
+              <feGaussianBlur stdDeviation="12" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <filter id="whiteFlare-right" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <radialGradient id="irisBgGrad-right" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#00ffff" />
+              <stop offset="35%" stop-color="#00b4d8" />
+              <stop offset="70%" stop-color="#0077b6" />
+              <stop offset="90%" stop-color="#03045e" />
+              <stop offset="100%" stop-color="#000000" />
+            </radialGradient>
+
+            <linearGradient id="scleraGrad-right" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00ffff" stop-opacity="0.55" />
+              <stop offset="20%" stop-color="#004466" stop-opacity="0.3" />
+              <stop offset="50%" stop-color="#000511" stop-opacity="0.95" />
+              <stop offset="80%" stop-color="#004466" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#00ffff" stop-opacity="0.55" />
+            </linearGradient>
+
+            <mask id="eyeContourMask-right">
+              <path d="M 50,140 Q 300,20 550,140 Q 300,260 50,140 Z" fill="#ffffff" />
+            </mask>
+          </defs>
+
+          <g mask="url(#eyeContourMask-right)">
+            <rect x="0" y="0" width="600" height="280" fill="#000000" />
+            <path d="M 50,140 Q 300,20 550,140 Q 300,260 50,140 Z" fill="url(#scleraGrad-right)" />
+
+            <!-- LAYERED 3D PARALLAX IRIS & PUPIL -->
+            <!-- Layer 1: Outer Iris Body & Spoke Texture -->
+            <g id="iris-bg-right">
+              <circle cx="300" cy="140" r="82" fill="url(#irisBgGrad-right)" stroke="#00ffff" stroke-width="3"
+                filter="url(#cyanGlow-right)" />
+
+              <g stroke="#00ffff" stroke-width="1.5" opacity="0.75">
+                <line x1="300" y1="58" x2="300" y2="78" />
+                <line x1="300" y1="202" x2="300" y2="222" />
+                <line x1="218" y1="140" x2="238" y2="140" />
+                <line x1="362" y1="140" x2="382" y2="140" />
+
+                <line x1="242" y1="82" x2="256" y2="96" />
+                <line x1="358" y1="82" x2="344" y2="96" />
+                <line x1="242" y1="198" x2="256" y2="184" />
+                <line x1="358" y1="198" x2="344" y2="184" />
+
+                <line x1="222" y1="110" x2="238" y2="118" />
+                <line x1="378" y1="110" x2="362" y2="118" />
+                <line x1="222" y1="170" x2="238" y2="162" />
+                <line x1="378" y1="170" x2="362" y2="162" />
+
+                <circle cx="300" cy="140" r="66" fill="none" stroke="#00ffff" stroke-width="1.5"
+                  stroke-dasharray="4,4" />
+              </g>
+
+              <circle cx="300" cy="140" r="44" fill="none" stroke="#00ffff" stroke-width="3.5"
+                filter="url(#cyanGlow-right)" />
+              <circle cx="300" cy="140" r="34" fill="none" stroke="#ffffff" stroke-width="2"
+                filter="url(#whiteFlare-right)" />
+            </g>
+
+            <!-- Layer 2: Deep Inner Black Pupil Center (3D Depth Offset) -->
+            <g id="pupil-core-right">
+              <circle cx="300" cy="140" r="26" fill="#000000" />
+              <circle cx="300" cy="140" r="16" fill="#020914" />
+            </g>
+
+            <!-- Layer 3: Surface Glare Reflection Spot -->
+            <g id="glare-right">
+              <circle cx="288" cy="128" r="5" fill="#ffffff" filter="url(#whiteFlare-right)" />
+              <circle cx="280" cy="136" r="2.5" fill="#ffffff" />
+            </g>
+          </g>
+
+          <!-- STATIC OUTLINES & CYBER EYELASHES -->
+          <path d="M 45,140 Q 300,15 555,140" fill="none" stroke="#00ffff" stroke-width="4.5"
+            filter="url(#cyanGlow-right)" />
+          <path d="M 45,140 Q 300,265 555,140" fill="none" stroke="#00ffff" stroke-width="3.5"
+            filter="url(#cyanGlow-right)" />
+
+          <path d="M 70,128 Q 300,2 530,128" fill="none" stroke="#00ffff" stroke-width="2.5" opacity="0.9"
+            filter="url(#cyanGlow-right)" />
+          <path d="M 100,118 Q 300,-10 500,118" fill="none" stroke="#00ffff" stroke-width="1.8" opacity="0.65" />
+
+          <path d="M 80,152 Q 300,278 520,152" fill="none" stroke="#00ffff" stroke-width="2" opacity="0.8" />
+
+          <g stroke="#00ffff" stroke-width="1.6" opacity="0.8" filter="url(#cyanGlow-right)">
+            <line x1="130" y1="72" x2="122" y2="55" />
+            <line x1="160" y1="52" x2="154" y2="34" />
+            <line x1="195" y1="36" x2="191" y2="18" />
+            <line x1="230" y1="24" x2="228" y2="6" />
+            <line x1="265" y1="18" x2="264" y2="0" />
+            <line x1="300" y1="15" x2="300" y2="-3" />
+            <line x1="335" y1="18" x2="336" y2="0" />
+            <line x1="370" y1="24" x2="372" y2="6" />
+            <line x1="405" y1="36" x2="409" y2="18" />
+            <line x1="440" y1="52" x2="446" y2="34" />
+            <line x1="470" y1="72" x2="478" y2="55" />
+
+            <line x1="150" y1="210" x2="145" y2="228" />
+            <line x1="190" y1="234" x2="187" y2="252" />
+            <line x1="245" y1="254" x2="243" y2="272" />
+            <line x1="300" y1="258" x2="300" y2="278" />
+            <line x1="355" y1="254" x2="357" y2="272" />
+            <line x1="410" y1="234" x2="413" y2="252" />
+            <line x1="450" y1="210" x2="455" y2="228" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint" id="scroll-hint">
+        <div class="scroll-track">
+          <div class="scroll-thumb"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+
+    </section>
+  </div><!-- /hero-wrapper -->
+
+  <!-- ══════════════════════
+       PHOTO REVEAL
+  ══════════════════════ -->
+  <section class="photo-reveal" id="photo-reveal-section">
+    <div class="photo-reveal-inner">
+      <div class="photo-text-block" id="photo-text-block">
+        <div class="hero-badge">
+          <span class="dot-pulse"></span>
+          Frontend Developer &nbsp;&middot;&nbsp; Open to Work
+        </div>
+        <h1 class="hero-main-title">
+          THE CODE-FIRST
+          <span class="hero-title-gradient">CREATIVE DEVELOPER</span>
+        </h1>
+        <div class="hero-main-actions">
+          <a href="#projects" class="btn-primary" id="btn-explore">
+            <span>View My Work</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-glass" id="btn-contact-hero">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="section-label reveal"><span class="label-line"></span>About Me<span class="label-line"></span></div>
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-photo-wrap">
+            <!-- SVG Pop-Out Mask Definition -->
+            <svg width="0" height="0" style="position:absolute;pointer-events:none;" aria-hidden="true">
+              <defs>
+                <clipPath id="avatar-popout-clip" clipPathUnits="userSpaceOnUse">
+                  <!-- Head area: rectangle allowing head/hair to pop out freely -->
+                  <rect x="0" y="0" width="320" height="175" />
+                  <!-- Body area: circle clipping torso/shirt inside the 290px circle -->
+                  <circle cx="160" cy="295" r="144" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <!-- Abstract glowing blob behind circle -->
+            <div class="photo-blob"></div>
+            <!-- Decorative orbit rings -->
+            <div class="photo-ring photo-ring-1"></div>
+            <div class="photo-ring photo-ring-2"></div>
+            <div class="photo-ring photo-ring-3"></div>
+            <!-- Circle border ring (decorative) — sits behind photo -->
+            <div class="photo-circle-mask"></div>
+            <!-- Photo frame: clips the body inside the circle while head pops out above -->
+            <div class="about-photo-frame">
+              <img src="fajar-formal.png" alt="Fajar Nur Farrijal" class="about-photo" id="about-photo" />
+            </div>
+            <!-- Front rim of circle (wraps over bottom of torso for 3D depth) -->
+            <div class="photo-circle-mask-front"></div>
+            <!-- Floating badge -->
+            <div class="about-badge glass-card">
+              <span>&#9889;</span>
+              <div>
+                <div class="ab-title">Open to Work</div>
+                <div class="ab-sub">Frontend Dev</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <h2 class="section-title">Hi, I'm <span class="gradient-text">Fajar Nur<br>Farrijal</span></h2>
+          <p class="about-desc">A passionate Frontend Developer with a deep love for crafting beautiful,
+            high-performance web experiences. I specialize in turning complex design ideas into smooth, accessible, and
+            scalable code.</p>
+          <p class="about-desc">Whether it's a sleek landing page, a complex dashboard, or an interactive web app — I
+            build it with care, creativity, and coffee. &#9749;</p>
+          <div class="about-highlights">
+            <div class="hl-item" id="hl-1"><span class="hl-icon">&#127912;</span>
+              <div>
+                <div class="hl-t">Design Systems</div>
+                <div class="hl-s">Scalable &amp; consistent</div>
+              </div>
+            </div>
+            <div class="hl-item" id="hl-2"><span class="hl-icon">&#9889;</span>
+              <div>
+                <div class="hl-t">Performance First</div>
+                <div class="hl-s">Lightning fast</div>
+              </div>
+            </div>
+            <div class="hl-item" id="hl-3"><span class="hl-icon">&#128241;</span>
+              <div>
+                <div class="hl-t">Responsive Design</div>
+                <div class="hl-s">Any device</div>
+              </div>
+            </div>
+            <div class="hl-item" id="hl-4"><span class="hl-icon">&#9855;</span>
+              <div>
+                <div class="hl-t">Accessibility</div>
+                <div class="hl-s">Inclusive by default</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-cta-row">
+            <a href="#" class="btn-primary" id="btn-cv"><span>Download CV</span><svg width="16" height="16"
+                viewBox="0 0 16 16" fill="none">
+                <path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></a>
+            <div class="social-row">
+              <a href="https://www.linkedin.com/in/fajar-nur-farrijal-448644255" target="_blank"
+                rel="noopener noreferrer" class="social-btn" id="soc-li" aria-label="LinkedIn" title="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/fjrrnf_26/" target="_blank" rel="noopener noreferrer"
+                class="social-btn" id="soc-ig" aria-label="Instagram" title="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="https://wa.me/62895806317711" target="_blank" rel="noopener noreferrer" class="social-btn"
+                id="soc-wa" aria-label="WhatsApp" title="WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+              </a>
+              <a href="mailto:fajarnf77@gmail.com" class="social-btn" id="soc-mail" aria-label="Gmail"
+                title="fajarnf77@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS (LEONARDO.AI STYLE 3D REVOLVING CYLINDER) -->
+  <section class="skills" id="skills">
+    <div class="section-inner">
+      <div class="section-label reveal"><span class="label-line"></span>Tech Stack<span class="label-line"></span></div>
+      <h2 class="section-title text-center reveal">Tools I <span class="gradient-text">Master</span></h2>
+      <p class="skills-sub text-center reveal">Drag or swipe left/right to rotate the 3D cylinder stack</p>
+
+      <!-- 3D CYLINDER STAGE -->
+      <div class="cylinder-stage reveal" id="cylinder-stage">
+        <div class="cylinder-glow" id="cylinder-glow"></div>
+
+        <div class="cylinder-drum" id="cylinder-drum">
+
+          <!-- PANEL 1: REACT / NEXT.JS -->
+          <div class="cylinder-panel" data-index="0" style="--c:#39ff6e; --i:0;">
+            <div class="cyl-top">
+              <span class="cyl-badge">01 // CORE</span>
+              <span class="cyl-icon">&#9883;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">95<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">REACT &amp;<br>NEXT.JS</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">WEB APPS &bull; SSR ARCHITECTURE</div>
+              <div class="cyl-tags">
+                <span>App Router</span><span>Server Components</span><span>Hooks</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 2: TYPESCRIPT & JAVASCRIPT -->
+          <div class="cylinder-panel" data-index="1" style="--c:#22d3ee; --i:1;">
+            <div class="cyl-top">
+              <span class="cyl-badge">02 // SCRIPT</span>
+              <span class="cyl-icon">&#128421;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">90<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">TYPESCRIPT<br>&amp; ES6+</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">TYPE SAFETY &bull; CLEAN LOGIC</div>
+              <div class="cyl-tags">
+                <span>Generics</span><span>Async/Await</span><span>Design Patterns</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 3: TAILWIND & CSS3 -->
+          <div class="cylinder-panel" data-index="2" style="--c:#b8ff00; --i:2;">
+            <div class="cyl-top">
+              <span class="cyl-badge">03 // DESIGN</span>
+              <span class="cyl-icon">&#127912;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">95<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">TAILWIND<br>&amp; CSS3</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">DESIGN SYSTEMS &bull; RESPONSIVE</div>
+              <div class="cyl-tags">
+                <span>Fluid Layouts</span><span>Custom Tokens</span><span>Grid/Flex</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 4: THREE.JS & WEBGL (Pink like Leonardo 80+) -->
+          <div class="cylinder-panel" data-index="3" style="--c:#ff2a85; --i:3;">
+            <div class="cyl-top">
+              <span class="cyl-badge">04 // 3D WEB</span>
+              <span class="cyl-icon">&#127760;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">80<span class="cyl-plus">+</span></div>
+              <h3 class="cyl-title">THREE.JS<br>&amp; WEBGL</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">3D IMMERSIVE EXPERIENCES</div>
+              <div class="cyl-tags">
+                <span>3D Parallax</span><span>Shaders</span><span>Cinematic Web</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 5: GSAP MOTION (Yellow like Leonardo 16+) -->
+          <div class="cylinder-panel" data-index="4" style="--c:#ffe600; --i:4;">
+            <div class="cyl-top">
+              <span class="cyl-badge">05 // MOTION</span>
+              <span class="cyl-icon">&#9889;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">85<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">GSAP<br>&amp; MOTION</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">SCROLLTRIGGER &bull; TIMELINES</div>
+              <div class="cyl-tags">
+                <span>Micro-interactions</span><span>Page Transitions</span><span>SVG FX</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 6: FIGMA TO CODE -->
+          <div class="cylinder-panel" data-index="5" style="--c:#a855f7; --i:5;">
+            <div class="cyl-top">
+              <span class="cyl-badge">06 // UI/UX</span>
+              <span class="cyl-icon">&#128396;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">90<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">FIGMA<br>TO CODE</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">PIXEL-PERFECT TRANSLATION</div>
+              <div class="cyl-tags">
+                <span>Component Handoff</span><span>Tokens</span><span>Prototyping</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 7: GIT & NODE.JS (Cyan like Leonardo 4B+) -->
+          <div class="cylinder-panel" data-index="6" style="--c:#00f0ff; --i:6;">
+            <div class="cyl-top">
+              <span class="cyl-badge">07 // TOOLS</span>
+              <span class="cyl-icon">&#128295;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">88<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">GIT &amp;<br>NODE.JS</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">VERSION CONTROL &bull; REST APIS</div>
+              <div class="cyl-tags">
+                <span>Branching</span><span>CI/CD</span><span>API Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 8: PERFORMANCE & WEB VITALS -->
+          <div class="cylinder-panel" data-index="7" style="--c:#f59e0b; --i:7;">
+            <div class="cyl-top">
+              <span class="cyl-badge">08 // SPEED</span>
+              <span class="cyl-icon">&#128640;</span>
+            </div>
+            <div class="cyl-center">
+              <div class="cyl-stat">100<span class="cyl-plus">%</span></div>
+              <h3 class="cyl-title">LIGHTHOUSE<br>&amp; SEO</h3>
+            </div>
+            <div class="cyl-bottom">
+              <div class="cyl-sub">CORE WEB VITALS &bull; ACCESSIBILITY</div>
+              <div class="cyl-tags">
+                <span>Zero CLS</span><span>Fast FCP</span><span>Semantic HTML</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cylinder-drum -->
+
+      </div><!-- /cylinder-stage -->
+
+      <!-- CONTROLS & HINT (OUTSIDE DRUM TO NEVER OVERLAP CARDS) -->
+      <div class="cylinder-controls reveal">
+        <button class="cyl-btn" id="cyl-prev" aria-label="Rotate left">&#8592;</button>
+        <div class="cyl-hint">
+          <span class="cyl-hint-dot"></span>
+          <span>DRAG &bull; SWIPE TO ROTATE</span>
+        </div>
+        <button class="cyl-btn" id="cyl-next" aria-label="Rotate right">&#8594;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-inner">
+      <div class="section-label reveal"><span class="label-line"></span>Portfolio<span class="label-line"></span></div>
+      <h2 class="section-title text-center reveal">Featured <span class="gradient-text">Projects</span></h2>
+      <div class="proj-grid">
+        <div class="proj-card glass-card reveal" id="proj-1">
+          <div class="proj-thumb">
+            <div class="proj-img proj-g1"><span>&#128717;</span></div>
+            <div class="proj-overlay"><a href="#" class="proj-view" id="pv-1">View Project &#8594;</a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span
+                class="tag">Tailwind</span></div>
+            <h3 class="proj-title">E-Commerce Platform</h3>
+            <p class="proj-desc">Full-featured e-commerce app with cart, payments, and admin dashboard.</p>
+            <div class="proj-footer"><a href="#" class="proj-gh" id="pgh-1">Source</a><a href="#" class="proj-demo"
+                id="pdemo-1">Live Demo &#8599;</a></div>
+          </div>
+        </div>
+        <div class="proj-card glass-card reveal" id="proj-2">
+          <div class="proj-thumb">
+            <div class="proj-img proj-g2"><span>&#128202;</span></div>
+            <div class="proj-overlay"><a href="#" class="proj-view" id="pv-2">View Project &#8594;</a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="tag">Vue.js</span><span class="tag">D3.js</span><span
+                class="tag">API</span></div>
+            <h3 class="proj-title">Analytics Dashboard</h3>
+            <p class="proj-desc">Real-time data visualization with interactive charts and filters.</p>
+            <div class="proj-footer"><a href="#" class="proj-gh" id="pgh-2">Source</a><a href="#" class="proj-demo"
+                id="pdemo-2">Live Demo &#8599;</a></div>
+          </div>
+        </div>
+        <div class="proj-card glass-card reveal" id="proj-3">
+          <div class="proj-thumb">
+            <div class="proj-img proj-g3"><span>&#127760;</span></div>
+            <div class="proj-overlay"><a href="#" class="proj-view" id="pv-3">View Project &#8594;</a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">Three.js</span><span
+                class="tag">GSAP</span></div>
+            <h3 class="proj-title">3D Creative Agency</h3>
+            <p class="proj-desc">Immersive agency site with WebGL 3D and cinematic transitions.</p>
+            <div class="proj-footer"><a href="#" class="proj-gh" id="pgh-3">Source</a><a href="#" class="proj-demo"
+                id="pdemo-3">Live Demo &#8599;</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal"><span class="label-line"></span>Contact<span class="label-line"></span></div>
+      <h2 class="section-title text-center reveal">Let's <span class="gradient-text">Work Together</span></h2>
+      <p class="contact-sub reveal">Have a project in mind? Let's build something amazing together!</p>
+      <div class="contact-grid">
+        <div class="contact-cards reveal">
+          <a href="mailto:fajarnf77@gmail.com" class="cc-card glass-card" id="cc-email">
+            <div class="cc-ico">&#128231;</div>
+            <div>
+              <div class="cc-label">Email</div>
+              <div class="cc-val">fajarnf77@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://wa.me/62895806317711" target="_blank" rel="noopener noreferrer" class="cc-card glass-card"
+            id="cc-wa">
+            <div class="cc-ico">&#128172;</div>
+            <div>
+              <div class="cc-label">WhatsApp</div>
+              <div class="cc-val">0895-8063-17711</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/fajar-nur-farrijal-448644255" target="_blank" rel="noopener noreferrer"
+            class="cc-card glass-card" id="cc-li">
+            <div class="cc-ico">&#128279;</div>
+            <div>
+              <div class="cc-label">LinkedIn</div>
+              <div class="cc-val">Fajar Nur Farrijal</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/fjrrnf_26/" target="_blank" rel="noopener noreferrer"
+            class="cc-card glass-card" id="cc-ig">
+            <div class="cc-ico">&#128247;</div>
+            <div>
+              <div class="cc-label">Instagram</div>
+              <div class="cc-val">@fjrrnf_26</div>
+            </div>
+          </a>
+          <div class="cc-card glass-card" id="cc-loc">
+            <div class="cc-ico">&#128205;</div>
+            <div>
+              <div class="cc-label">Location</div>
+              <div class="cc-val">Indonesia &#127470;&#127465;</div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form glass-card reveal" id="contact-form" action="https://api.web3forms.com/submit"
+          method="POST">
+          <input type="hidden" name="access_key" value="aa142c97-8f2d-4f05-9e73-d3a1469eca00" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+          <div class="form-row">
+            <div class="form-grp"><label for="inp-name">Name</label><input type="text" id="inp-name" name="name"
+                placeholder="Your name" required /></div>
+            <div class="form-grp"><label for="inp-email">Email</label><input type="email" id="inp-email" name="email"
+                placeholder="your@email.com" required /></div>
+          </div>
+          <div class="form-grp"><label for="inp-subject">Subject</label><input type="text" id="inp-subject"
+              name="subject" placeholder="Project idea or inquiry" required /></div>
+          <div class="form-grp"><label for="inp-msg">Message</label><textarea id="inp-msg" name="message" rows="5"
+              placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="btn-primary btn-full" id="btn-send"><span>Send Message</span><svg width="16"
+              height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand-wrap">
+        <a href="#home" class="nav-logo footer-logo" id="footer-logo">PORTOFOLIO</a>
+        <span class="footer-tagline">FAJAR NUR FARRIJAL &bull; FRONTEND DEV</span>
+      </div>
+      <p class="footer-copy">&copy; 2026 Fajar Nur Farrijal &mdash; Built with &#10084;&#65039; &amp; &#9749;</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/fajar-nur-farrijal-448644255" target="_blank" rel="noopener noreferrer"
+          class="social-btn" id="fsoc-li" aria-label="LinkedIn" title="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/fjrrnf_26/" target="_blank" rel="noopener noreferrer" class="social-btn"
+          id="fsoc-ig" aria-label="Instagram" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://wa.me/62895806317711" target="_blank" rel="noopener noreferrer" class="social-btn" id="fsoc-wa"
+          aria-label="WhatsApp" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+        </a>
+        <a href="mailto:fajarnf77@gmail.com" class="social-btn" id="fsoc-mail" aria-label="Gmail"
+          title="fajarnf77@gmail.com">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
